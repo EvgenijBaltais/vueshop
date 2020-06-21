@@ -1,15 +1,44 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+
+import vCatalog from '../components/v-catalog'
+import vCart from '../components/v-cart'
+import Main from '../components/Main'
+import Product from '../components/Product'
+import myContact from '../components/MyContact'
 
 Vue.use(VueRouter)
 
   const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
+    {
+      path: '/catalog',
+      redirect: '/main',
+      name: 'catalog',
+      component: vCatalog
+    },
+    {
+      path: '/',
+      name: 'Main',
+      meta: {layout: 'Main'},
+      component: Main
+    },
+    {
+      path: '/product',
+      name: 'Product',
+      meta: {layout: 'Product'},
+      component: Product
+    },
+    {
+      path: '/contacts',
+      name: 'myContact',
+      component: myContact
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: vCart,
+      props: true
+    },
   {
     path: '/about',
     name: 'About',
@@ -23,7 +52,7 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes: routes
 })
 
 export default router
