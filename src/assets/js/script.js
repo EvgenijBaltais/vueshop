@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function(){
 
 // Меню - открытие, закрытие
-
+/*
 let menuIcon = document.getElementById('menu-icon'),
 	menuList = document.getElementById('optional-menu-block');
 
@@ -21,7 +21,7 @@ let menuIcon = document.getElementById('menu-icon'),
 			document.getElementById('wrapper').classList.remove('full-page');
 		}
 	})
-
+*/
 // Меню - скрытие левой секции страницы
 
 // Смена варианта отображения товаров

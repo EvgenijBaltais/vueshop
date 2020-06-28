@@ -1,5 +1,5 @@
 <template>
-<div class="wrapper" id = "wrapper">
+<div class="wrapper" id = "wrapper" v-bind:class = "{'full-page': fullSize}">
 
     <TopStripe />
     <MainNav />
@@ -29,12 +29,16 @@ import OptionalNav from '../views/yellow/optional-nav'
 import OptionalHiddenMenu from '../views/yellow/optional-hidden-menu'
 import Footer from '../views/yellow/footer'
 
+import {mapGetters} from "vuex"
+
 export default {
 
     name: 'YellowLayout',
     props: {},
     data() {
-        return {}
+        return {
+
+        }
     },
     components: {
         TopStripe, MainNav, OptionalNav, OptionalHiddenMenu, Footer
@@ -46,6 +50,18 @@ export default {
           { vmid: 'og:title', property: 'og:title', content: 'Vue App' },
           { vmid: 'og:description', property: 'og:description', content: 'Vue App' },
         ],
-      }
+      },
+    methods: {
+
+    },
+    computed: {
+
+        ...mapGetters(['fullSize'])
+        //fullSize(){
+        //    return this.$store.state.fullSize
+        //}
+    }
 }
+
+
 </script>

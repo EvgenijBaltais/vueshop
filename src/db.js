@@ -30,8 +30,6 @@ app.use(function(req, res, next) {
 
 app.listen(3000, () => console.log('Express server is running at post 3000'))
 
-
-
 // Get all bouquets
 app.get('/bouquets', (req, res) => {
     pool.query('SELECT * from bouquets', (err, rows, fields) => {

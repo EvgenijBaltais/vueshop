@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './vuex/store'
+import store from './store/index'
 
 
 /*import "./assets/js/plugins/main-slider/slider"*/

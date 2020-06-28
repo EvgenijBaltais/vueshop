@@ -33,7 +33,7 @@
 export default {
 
     name: 'MainNav',
-    date() {
+    data() {
         return {}
     }
 }

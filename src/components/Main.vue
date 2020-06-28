@@ -10,7 +10,7 @@
         <p class = "main-text">Пресс-секретарь президента России Дмитрий Песков рассказал о состоянии здоровья главы государства Владимира Путина в связи с ситуацией распространения коронавируса, передает РИА "Новости". "Здоровье Путина отменное, это видно по рабочему графику президента", - подчеркнул представитель Кремля.</p>
     </section>
     <section class="container products-block">
-        <p class = "separator-title" @click = "get_products()">Лидеры продаж</p>
+        <p class = "separator-title" @click = "get_products()">Каталог букетов</p>
         <div class = "section-separator">
             <div class = "separator-filled"></div>
         </div>
@@ -21,7 +21,6 @@
         </div>
         <div class = "products-wrapper block-mode">
             
-
         <CatalogItem
             v-for = "item in bouquets"
             :key = "item.id"
@@ -29,9 +28,7 @@
         />
 
         </div>
-
     </section>
-
 </div>
 </template>
 
@@ -47,7 +44,9 @@ export default {
 
     name: 'Main',
     data() {
-        return {bouquets: null}
+        return {
+            bouquets: null
+        }
     },
     components: {
         MainSlider, Breadcrumbs, CatalogItem

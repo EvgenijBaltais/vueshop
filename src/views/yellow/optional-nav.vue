@@ -1,8 +1,8 @@
 <template>
 <section class = "optional-nav" id = "optional-nav">
     <div class="container optional-menu-container">
-        <div class = "optional-menu">
-            <div class="menu-icon open" id = "menu-icon">
+        <div class = "optional-menu" @click = "changeSize()">
+            <div class="menu-icon" id = "menu-icon" v-bind:class = "{'open': !fullSize}">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -21,11 +21,32 @@
 
 <script>
 
+import {mapGetters, mapActions} from "vuex";
+
 export default {
 
     name: 'OptionalNav',
-    date() {
-        return {}
+    data() {
+        return {
+            sizeValue: this.$store.state.fullSize
+        }
+    },
+    methods: {
+        ...mapActions(['CHANGESIZE']),
+
+        changeSize() {
+            this.sizeValue == 1 ? this.sizeValue = 0 : this.sizeValue = 1
+
+            //console.log(this.sizeValue);
+            this.CHANGESIZE(this.sizeValue)
+        }
+        
+    },
+    computed: {
+        ...mapGetters(['fullSize'])
     }
 }
+
+
+
 </script>
