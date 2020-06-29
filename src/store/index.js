@@ -5,7 +5,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    fullSize: 0
+    fullSize: 0,
+    cartItems: [],
+    cartItemsValue: 0
   },
   mutations: {
     INCREMENT: (state, value) => {
@@ -20,6 +22,9 @@ export default new Vuex.Store({
   getters: {
     fullSize: state => {
       return state.fullSize
+    },
+    cartItemsValue: state => {
+      return state.cartItemsValue
     }
   },
   modules: {

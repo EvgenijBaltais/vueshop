@@ -12,7 +12,7 @@
         </div>
         <a class = "top-cart" href = "cart.php">
             <img src="img/icons/cart-black.svg" alt="Корзина товаров" class = "top-cart-pic">
-            <div class = "top-cart-pic_info">1</div>
+            <div class = "top-cart-pic_info">{{cartItemsValue}}</div>
             <p class = "cart-total-price">10 000</p>
         </a>
     </div>
@@ -43,7 +43,7 @@ export default {
         
     },
     computed: {
-        ...mapGetters(['fullSize'])
+        ...mapGetters(['fullSize', 'cartItemsValue'])
     }
 }
 
