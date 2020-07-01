@@ -21,6 +21,17 @@
                 <router-link :to = "{name: 'myContact'}" class = "main-nav-link">Контакты</router-link>
             </li>
         </ul>
+        <div class = "main-nav-cart">
+            <div class = "top-cart" href = "cart.php">
+                <img src="img/icons/cart-black.svg" alt="Корзина товаров" class = "top-cart-pic">
+                <div class = "top-cart-pic_info">{{cartItemsValue}}</div>
+                <p class = "cart-total-price">{{cartPrice}}</p>
+
+                <div class="cart-content">
+                    <p>Название:</p>
+                </div>
+            </div>
+        </div>
         <div class = "main-nav-phone">
             <a href="tel:+77777777777" class = "main-top-phone">+7 (777) 777-77-77</a>
         </div>
@@ -30,11 +41,17 @@
 
 <script>
 
+import {mapGetters} from 'vuex'
+
 export default {
 
     name: 'MainNav',
     data() {
         return {}
+    },
+    computed: {
+
+        ...mapGetters(['cartItemsValue', 'cartPrice'])
     }
 }
 </script>

@@ -10,11 +10,15 @@
             </div>
             <p class = "optional-menu-info">Категории</p>
         </div>
-        <a class = "top-cart" href = "cart.php">
+        <div class = "top-cart" href = "cart.php">
             <img src="img/icons/cart-black.svg" alt="Корзина товаров" class = "top-cart-pic">
-            <div class = "top-cart-pic_info">{{cartItemsValue}}</div>
-            <p class = "cart-total-price">10 000</p>
-        </a>
+            <div class = "top-cart-pic_info">{{cartItems.length}}</div>
+            <p class = "cart-total-price">{{0}}</p>
+
+            <div class="cart-content">
+                <p v-for = "item in cartItems">Название: {{item.title}} Кол-во: {{item.amount}} Цена {{item.price}}<br><br></p>
+            </div>
+        </div>
     </div>
 </section>
 </template>
@@ -28,7 +32,8 @@ export default {
     name: 'OptionalNav',
     data() {
         return {
-            sizeValue: this.$store.state.fullSize
+            sizeValue: this.$store.state.fullSize,
+            cartItems: this.$store.state.cartItems
         }
     },
     methods: {
@@ -36,14 +41,11 @@ export default {
 
         changeSize() {
             this.sizeValue == 1 ? this.sizeValue = 0 : this.sizeValue = 1
-
-            //console.log(this.sizeValue);
             this.CHANGESIZE(this.sizeValue)
         }
-        
     },
     computed: {
-        ...mapGetters(['fullSize', 'cartItemsValue'])
+        ...mapGetters(['fullSize'])
     }
 }
 

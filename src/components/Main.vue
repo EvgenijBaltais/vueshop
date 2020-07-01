@@ -22,7 +22,7 @@
         <div class = "products-wrapper block-mode">
             
         <CatalogItem
-            v-for = "item in bouquets"
+            v-for = "item in products"
             :key = "item.id"
             v-bind:products="item"
         />
@@ -45,7 +45,7 @@ export default {
     name: 'Main',
     data() {
         return {
-            bouquets: null
+            products: null
         }
     },
     components: {
@@ -56,8 +56,8 @@ export default {
     },
   mounted() {
     axios
-      .get('http://localhost:3000/bouquets')
-      .then((response) => {console.log(response); this.bouquets = response.data});
+      .get('http://localhost:3000/products')
+      .then((response) => {console.log(response); this.products = response.data});
   }
 }
 </script>
