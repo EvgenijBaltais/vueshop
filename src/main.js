@@ -4,8 +4,6 @@ import router from './router'
 import store from './store/index'
 
 
-/*import "./assets/js/plugins/main-slider/slider"*/
-/*import "./assets/js/plugins/main-slider/vueslider"*/
 import "./assets/js/script"
 import "./assets/js/carousel"
 

@@ -30,9 +30,9 @@ app.use(function(req, res, next) {
 
 app.listen(3000, () => console.log('Express server is running at post 3000'))
 
-// Get all bouquets
-app.get('/bouquets', (req, res) => {
-    pool.query('SELECT * from bouquets', (err, rows, fields) => {
+// Get all products
+app.get('/products', (req, res) => {
+    pool.query('SELECT * from products', (err, rows, fields) => {
         if (!err) {
             res.send(rows)
         }
@@ -42,9 +42,9 @@ app.get('/bouquets', (req, res) => {
     })
 })
 
-// Get a bouquet
-app.get('/bouquets/:id', (req, res) => {
-    pool.query('SELECT * from bouquets WHERE id = ?',[req.params.id], (err, rows, fields) => {
+// Get a products
+app.get('/products/:id', (req, res) => {
+    pool.query('SELECT * from products WHERE id = ?',[req.params.id], (err, rows, fields) => {
         if (!err) {
             res.send(rows)
         }
@@ -56,9 +56,9 @@ app.get('/bouquets/:id', (req, res) => {
 
 //mysqlConnection.end()
 
-// Delete a bouquet
-app.delete('/bouquets/:id', (req, res) => {
-    pool.query('DELETE FROM bouquets WHERE id = ?',[req.params.id], (err, rows, fields) => {
+// Delete a product
+app.delete('/products/:id', (req, res) => {
+    pool.query('DELETE FROM products WHERE id = ?',[req.params.id], (err, rows, fields) => {
         if (!err) {
             res.send('Delete succesfully')
         }
@@ -68,10 +68,10 @@ app.delete('/bouquets/:id', (req, res) => {
     })
 })
 
-// Insert a bouquet
-app.post('/bouquets', (req, res) => {
+// Insert a product
+app.post('/products', (req, res) => {
     let d = req.body
-    let sql = 'INSERT INTO bouquets (title, full_price, price, category, rating, img)  VALUES (?,?,?,?,?,?)';
+    let sql = 'INSERT INTO products (title, full_price, price, category, rating, img)  VALUES (?,?,?,?,?,?)';
     pool.query(sql, [d.title, d.full_price, d.price, d.category, d.rating, d.img], (err, rows, fields) => {
         if (!err) {
             /*rows.forEach(element => {
@@ -86,10 +86,10 @@ app.post('/bouquets', (req, res) => {
     })
 })
 
-// UPDATE a bouquet
-app.put('/bouquets/:id', (req, res) => {
+// UPDATE a product
+app.put('/products/:id', (req, res) => {
     let d = req.body
-    let sql = 'UPDATE bouquets SET title = ? WHERE id = ?';
+    let sql = 'UPDATE products SET title = ? WHERE id = ?';
     pool.query(sql, ["945", req.params.id], (err, rows, fields) => {
         if (!err) {
             res.send('Update complete')

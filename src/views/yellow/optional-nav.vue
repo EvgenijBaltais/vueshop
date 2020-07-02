@@ -10,11 +10,7 @@
             </div>
             <p class = "optional-menu-info">Категории</p>
         </div>
-        <a class = "top-cart" href = "cart.php">
-            <img src="img/icons/cart-black.svg" alt="Корзина товаров" class = "top-cart-pic">
-            <div class = "top-cart-pic_info">{{cartItemsValue}}</div>
-            <p class = "cart-total-price">10 000</p>
-        </a>
+        <Cart></Cart>
     </div>
 </section>
 </template>
@@ -22,28 +18,30 @@
 <script>
 
 import {mapGetters, mapActions} from "vuex";
+import Cart from '../../views/yellow/cart'
 
 export default {
 
     name: 'OptionalNav',
     data() {
         return {
-            sizeValue: this.$store.state.fullSize
+            sizeValue: this.$store.state.fullSize,
+            cartItems: this.$store.state.cartItems
         }
+    },
+    components: {
+        Cart
     },
     methods: {
         ...mapActions(['CHANGESIZE']),
 
         changeSize() {
             this.sizeValue == 1 ? this.sizeValue = 0 : this.sizeValue = 1
-
-            //console.log(this.sizeValue);
             this.CHANGESIZE(this.sizeValue)
         }
-        
     },
     computed: {
-        ...mapGetters(['fullSize', 'cartItemsValue'])
+        ...mapGetters(['fullSize'])
     }
 }
 

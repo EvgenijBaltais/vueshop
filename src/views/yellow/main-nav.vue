@@ -21,6 +21,7 @@
                 <router-link :to = "{name: 'myContact'}" class = "main-nav-link">Контакты</router-link>
             </li>
         </ul>
+        <Cart></Cart>
         <div class = "main-nav-phone">
             <a href="tel:+77777777777" class = "main-top-phone">+7 (777) 777-77-77</a>
         </div>
@@ -30,11 +31,21 @@
 
 <script>
 
+import {mapGetters} from 'vuex'
+import Cart from '../../views/yellow/cart'
+
 export default {
 
     name: 'MainNav',
     data() {
         return {}
+    },
+    components: {
+        Cart
+    },
+    computed: {
+
+        ...mapGetters(['cartItemsValue', 'cartPrice'])
     }
 }
 </script>
