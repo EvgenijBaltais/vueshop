@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import Breadcrumbs from '../views/yellow/breadcrumbs'
+import Breadcrumbs from './breadcrumbs'
 export default {
 
     name: 'Test',

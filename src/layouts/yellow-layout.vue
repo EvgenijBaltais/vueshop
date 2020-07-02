@@ -10,24 +10,20 @@
         <OptionalHiddenMenu />
     </div>
     <div class="page-right" id = "page-right">
-     
-    <router-view></router-view>
-
+        <router-view></router-view>
     </div>
 </section>
-
     <Footer />
-
 </div>
 </template>
 
 <script>
 
-import TopStripe from '../views/yellow/top-stripe'
-import MainNav from '../views/yellow/main-nav'
-import OptionalNav from '../views/yellow/optional-nav'
-import OptionalHiddenMenu from '../views/yellow/optional-hidden-menu'
-import Footer from '../views/yellow/footer'
+import TopStripe from '../components/top-stripe'
+import MainNav from '../components/main-nav'
+import OptionalNav from '../components/optional-nav'
+import OptionalHiddenMenu from '../components/optional-hidden-menu'
+import Footer from '../components/footer'
 
 import {mapGetters} from "vuex"
 
@@ -57,9 +53,6 @@ export default {
     computed: {
 
         ...mapGetters(['fullSize'])
-        //fullSize(){
-        //    return this.$store.state.fullSize
-        //}
     }
 }
 

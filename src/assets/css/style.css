@@ -220,6 +220,10 @@ section {
     box-sizing: border-box;
 }
 
+.main-nav .main-nav-cart {
+    display: none;
+}
+
 .main-nav-wrap {
     max-width: 1250px;
     margin: 0 auto;
@@ -251,7 +255,7 @@ section {
 
 .main-nav-list {
 
-    width: calc(100% - 600px);
+    width: calc(100% - 400px);
 
     display: block;
     text-align: right;
@@ -287,6 +291,14 @@ section {
     -webkit-box-shadow: 0 0 12px 0 rgba(0,0,0,.2);
     -moz-box-shadow: 0 0 12px 0 rgba(0,0,0,.2);
     box-shadow: 0 0 12px 0 rgba(0,0,0,.2);
+}
+
+.sticky-nav .main-nav-cart {
+    display: block;
+}
+
+.sticky-nav .main-nav-list {
+    width: calc(100% - 600px);
 }
 
 .main-nav-logo {
@@ -356,9 +368,9 @@ section {
     position: absolute;
     top: 0;
     left: 0;
-    border-right: 3px solid var(--main-yelow);
-    border-bottom: 3px solid var(--main-yelow);
-    border-left: 3px solid var(--main-yelow);
+    border-right: 3px solid var(--dop-yelow);
+    border-bottom: 3px solid var(--dop-yelow);
+    border-left: 3px solid var(--dop-yelow);
     z-index: 10;
     background-color: #fff;
     box-sizing: border-box;
@@ -396,12 +408,13 @@ section {
 }
 
 .top-cart {
-    width: 200px;
     position: relative;
     display: flex;
     align-items: flex-end;
     text-decoration: none;
+    padding: 10px 0;
     color: #000;
+    box-sizing: border-box;
     cursor: pointer;
 }
 
@@ -432,12 +445,13 @@ section {
     width: 800px;
     display: none;
     position: absolute;
-    top: 50px;
+    top:50px;
     right: 0;
     padding: 20px;
+    box-sizing: border-box;
     background-color: aliceblue;
     border: 1px solid #ccc;
-    z-index: 5;
+    z-index: 12;
 }
 
 .cart-total-price {
@@ -447,6 +461,7 @@ section {
     padding-left: 28px;
     font-size: 14px;
     line-height: 20px;
+    font-weight: bold;
 }
 
 .link-parent .optional-menu-item-wrap {
@@ -464,7 +479,7 @@ section {
     left: 100%;
     background-color: #fff;
     list-style-type: none;
-    border: 3px solid var(--main-yelow);
+    border: 3px solid var(--dop-yelow);
     box-sizing: border-box;
 }
 

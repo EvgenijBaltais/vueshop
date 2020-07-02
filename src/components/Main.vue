@@ -34,9 +34,9 @@
 
 <script>
 
-import MainSlider from '../views/yellow/main-slider'
-import Breadcrumbs from '../views/yellow/breadcrumbs'
-import CatalogItem from '../views/yellow/Catalog_item'
+import MainSlider from './main-slider'
+import CatalogItem from './Catalog_item'
+import Breadcrumbs from './breadcrumbs'
 
 import axios from 'axios'
 
@@ -49,7 +49,7 @@ export default {
         }
     },
     components: {
-        MainSlider, Breadcrumbs, CatalogItem
+        MainSlider, CatalogItem, Breadcrumbs
     },
     methods: {
 

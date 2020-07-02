@@ -5,6 +5,7 @@ import vCatalog from '../components/v-catalog'
 import vCart from '../components/v-cart'
 import Main from '../components/Main'
 import Product from '../components/Product'
+import Catalog from '../components/Catalog'
 import myContact from '../components/MyContact'
 
 Vue.use(VueRouter)
@@ -12,14 +13,19 @@ Vue.use(VueRouter)
   const routes = [
     {
       path: '/catalog',
-      redirect: '/main',
-      name: 'catalog',
-      component: vCatalog
+      name: 'Catalog',
+      component: Catalog
     },
     {
       path: '/',
       name: 'Main',
-      meta: {layout: 'Main'},
+      meta: {
+        layout: 'Main',
+        breadcrumb(){
+          const {name} = this.$route
+          return `name "${name}" of context route`
+        }
+      },
       component: Main
     },
     {
@@ -39,14 +45,14 @@ Vue.use(VueRouter)
       component: vCart,
       props: true
     },
-  {
-    path: '/about',
-    name: 'About',
+  //{
+    //path: '/about',
+    //name: 'About',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+   // component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  //}
 ]
 
 const router = new VueRouter({

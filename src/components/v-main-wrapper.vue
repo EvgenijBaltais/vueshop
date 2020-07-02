@@ -7,13 +7,6 @@
     </keep-alive>
 
     <h1>{{title}}</h1>
-
-<!--    <v-catalog/>
-    <v-cart
-    v-if = "CART.length"
-    :cart_data = "CART"
-     />
--->
 </div>
 </template>
 

@@ -5,12 +5,6 @@
     </router-link>
 
     <div class = "v-main-wrap">
-    <!--<v-catalog-item 
-    v-for = "product in PRODUCTS"
-    :key = "product.article" 
-    v-bind:product_data = "product"
-    @sendArticle = "articleInConsole"
-     />-->
     <v-catalog-item 
     v-for = "product in PRODUCTS"
     :key = "product.article" 
