@@ -1,8 +1,11 @@
 <template>
 <section class = "container breadcrumbs" v-if = $breadcrumbs.length>
-{{a}}
-    <div class = "breadcrumbs-home" v-for = "(key, index) in $breadcrumbs">
-            1
+    <div class = "breadcrumbs-home">
+        <a href = "" class = "breadcrumbs-link-main">Главная</a>
+    </div>
+    <div class = "breadcrumbs-next">></div>
+    <div class = "breadcrumbs-item" v-for = "(key, index) in $breadcrumbs">
+        <a href = "" class = "breadcrumbs-link">{{key.meta.breadcrumb}}</a>
     </div>
 <!--
     <div class = "breadcrumbs-home">
