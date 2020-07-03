@@ -1,11 +1,11 @@
 <template>
 <section class = "container breadcrumbs" v-if = $breadcrumbs.length>
     <div class = "breadcrumbs-home">
-        <a href = "" class = "breadcrumbs-link-main">Главная</a>
+        <router-link :to = "{name: 'Main'}" href = "" class = "breadcrumbs-link-main">Главная</router-link>
     </div>
     <div class = "breadcrumbs-next">></div>
     <div class = "breadcrumbs-item" v-for = "(key, index) in $breadcrumbs">
-        <a href = "" class = "breadcrumbs-link">{{key.meta.breadcrumb}}</a>
+        <router-link :to = "{name: key.name}" class = "breadcrumbs-link">{{key.meta.breadcrumb}}</router-link>
     </div>
 <!--
     <div class = "breadcrumbs-home">

@@ -13,6 +13,9 @@ Vue.use(VueRouter)
     {
       path: '/catalog',
       name: 'Catalog',
+      meta: {
+        breadcrumb: 'Каталог'
+      },
       component: Catalog
     },
     {

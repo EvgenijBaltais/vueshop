@@ -1,5 +1,6 @@
 <template>
     <div>
+        <Breadcrumbs/>
         <CatalogItem
             v-for = "item in products"
             :key = "item.id"
@@ -11,6 +12,7 @@
 <script>
 
 import CatalogItem from './Catalog_item'
+import Breadcrumbs from './breadcrumbs'
 import axios from 'axios'
 
 export default {
@@ -21,7 +23,7 @@ export default {
         }
     },
     components: {
-        CatalogItem
+        CatalogItem, Breadcrumbs
     },
     mounted() {
         axios
