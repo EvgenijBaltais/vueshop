@@ -5,7 +5,7 @@
     <Breadcrumbs />
 
     <section class = "container title-block">
-        <h1 class = "main-title">Цветочный магазин</h1>
+        <h1 class = "main-title">Цветочный магазин{{rout}}</h1>
         <p class = "main-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet molestias cumque ex voluptatem debitis nulla maxime, adipisci ad beatae odio totam tenetur suscipit corporis numquam eum asperiores ab nostrum optio.</p>
         <p class = "main-text">Пресс-секретарь президента России Дмитрий Песков рассказал о состоянии здоровья главы государства Владимира Путина в связи с ситуацией распространения коронавируса, передает РИА "Новости". "Здоровье Путина отменное, это видно по рабочему графику президента", - подчеркнул представитель Кремля.</p>
     </section>
@@ -53,6 +53,12 @@ export default {
     },
     methods: {
 
+    },
+    computed: {
+
+        rout(){
+            return this.$route.name
+        }
     },
   mounted() {
     axios

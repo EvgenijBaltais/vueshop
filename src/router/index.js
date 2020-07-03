@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
 import vCatalog from '../components/v-catalog'
 import vCart from '../components/v-cart'
 import Main from '../components/Main'
@@ -20,11 +19,7 @@ Vue.use(VueRouter)
       path: '/',
       name: 'Main',
       meta: {
-        layout: 'Main',
-        breadcrumb(){
-          const {name} = this.$route
-          return `name "${name}" of context route`
-        }
+        breadcrumb: 'Главная'
       },
       component: Main
     },
@@ -37,6 +32,9 @@ Vue.use(VueRouter)
     {
       path: '/contacts',
       name: 'myContact',
+      meta: {
+        breadcrumb: 'Контакты'
+      },
       component: myContact
     },
     {

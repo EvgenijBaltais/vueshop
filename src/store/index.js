@@ -22,8 +22,6 @@ export default new Vuex.Store({
           }
         }
 
-        console.log(alreadyExists)
-
         if (alreadyExists != -1) {
           state.cartItems[alreadyExists].price += item.price * item.amount
           state.cartItems[alreadyExists].amount += item.amount
