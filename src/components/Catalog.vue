@@ -1,11 +1,13 @@
 <template>
     <div>
         <Breadcrumbs/>
-        <CatalogItem
-            v-for = "item in products"
-            :key = "item.id"
-            v-bind:products="item"
-        />
+        <div class = "products-wrapper block-mode">
+            <CatalogItem
+                v-for = "item in products"
+                :key = "item.id"
+                v-bind:products="item"
+            />
+        </div>
     </div>
 </template>
 
