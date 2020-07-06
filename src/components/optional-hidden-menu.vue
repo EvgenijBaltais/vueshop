@@ -5,7 +5,7 @@
             <div class = "optional-menu-item-wrap">
                 <a class = "optional-menu-link">Букеты</a>
                 <ul class = "child-nav-list">
-                    <li class = "child-nav-item">Букеты из роз</li>
+                    <li class = "child-nav-item"><router-link :to = "{name: 'Catalog', params: {id: 3}}">Букеты из роз</router-link></li>
                     <li class = "child-nav-item">Букеты из лилий</li>
                     <li class = "child-nav-item">Букеты из гвоздик</li>
                     <li class = "child-nav-item">Букеты из фиалок</li>

@@ -11,7 +11,7 @@ Vue.use(VueRouter)
 
   const routes = [
     {
-      path: '/catalog',
+      path: '/catalog/:id',
       name: 'Catalog',
       meta: {
         breadcrumb: 'Каталог'

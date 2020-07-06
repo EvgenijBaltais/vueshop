@@ -3,7 +3,7 @@
     <div class = "big-subscribe">
         <div class="container big-subscribe-cont">
             <div class = "subscribe-text">
-                <img v-bind:src="'../assets/img/icons/envelope.svg'" alt="Подписка на новости и скидки!" class = "subscribe-envelope"/>
+                <img v-bind:src="'/img/icons/envelope.svg'" alt="Подписка на новости и скидки!" class = "subscribe-envelope"/>
                 <p class = "subscribe-info">Подписка на новости и скидки!</p>
             </div>
             <div class = "subscribe-form">
@@ -45,8 +45,6 @@ export default {
     name: 'Footer',
     date() {
         return {
-
-            envelope: '/assets/img/icons/envelope.svg'
         }
     }
 }

@@ -1,7 +1,7 @@
 <template>
 
 <div class = "product">
-        <img :src="'../assets/img/bouqets/' + products.id + '/' + products.id + '.jpg'" alt = "img" class = "item_img">
+        <img :src="'/img/bouqets/' + products.id + '/' + '1.jpg'" alt = "img" class = "item_img">
         <p class = "product-title">
             <a href = "/product.php">{{products.title}}</a>
         </p>
