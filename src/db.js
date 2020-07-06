@@ -15,7 +15,7 @@ app.use(function(req, res, next) {
     connectionLimit: 5,
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'toor',
     database: 'flowershop',
     multipleStatements: true
 })
