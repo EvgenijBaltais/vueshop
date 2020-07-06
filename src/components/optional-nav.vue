@@ -10,7 +10,7 @@
             </div>
             <p class = "optional-menu-info">Категории</p>
         </div>
-        <Cart></Cart>
+        <Cart/>
     </div>
 </section>
 </template>

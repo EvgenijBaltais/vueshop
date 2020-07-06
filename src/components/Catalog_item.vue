@@ -1,7 +1,6 @@
 <template>
 
 <div class = "product">
-        <img :src="'/img/bouqets/' + products.id + '/' + '1.jpg'" alt = "img" class = "item_img">
         <p class = "product-title">
             <a href = "/product.php">{{products.title}}</a>
         </p>
