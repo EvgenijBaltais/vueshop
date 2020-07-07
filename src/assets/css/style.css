@@ -84,7 +84,7 @@ section {
 
 .page-right {
     width: calc(100% - 270px);
-    min-height: 400px;
+    min-height: 700px;
     padding-left: 30px;
     padding-top: 30px;
     box-sizing: border-box;
@@ -1437,3 +1437,57 @@ section {
 
 
 /* Range Slider */
+
+.selection-block {
+    padding: 20px 0;
+}
+
+.vue-range-slider {
+    max-width: 500px;
+}
+
+.color-versions {
+    max-width: 500px;
+    display: flex;
+}
+
+.color-variant {
+    width: 50px;
+    height: 40px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.red-color {
+   background-color: #AB0D09; 
+}
+.white-color {
+    background-color: #fff;
+}
+.pink-color {
+
+}
+.yellow-color {
+
+}
+.orange-color {
+
+}
+.purple-color {
+
+}
+.pastel-color {
+
+}
+.bright-color {
+
+}
+.random-color {
+
+}
+.green-color {
+
+}
+
+/* Range Slider, конец */
