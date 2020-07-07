@@ -1,5 +1,5 @@
 <template>
-<section class = "container slider" id = "slider">
+<section class = "container main-slider" id = "main-slider">
     <div class = "slider-arrow-left" id = "slider-arrow-left" @click = "slideAction($event, 'left')"></div>
     <div class = "slider-arrow-right" id = "slider-arrow-right" @click = "slideAction($event, 'right')"></div>
     <!--<div class = "slide-info">
@@ -40,7 +40,7 @@ export default {
     methods: {
 
         slideAction: function(e, value) {
-            let parent = this.getParent(e.target, 'slider'),
+            let parent = this.getParent(e.target, 'main-slider'),
                 slides = parent.querySelectorAll('.slider-slide'),
                 sliderDots = parent.querySelectorAll('.slider-nav-dot');
 

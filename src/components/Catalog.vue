@@ -1,6 +1,7 @@
 <template>
     <div>
         <Breadcrumbs/>
+        <Selection/>
         <div class = "products-wrapper block-mode">
             <CatalogItem
                 v-for = "item in products"
@@ -15,6 +16,7 @@
 
 import CatalogItem from './Catalog_item'
 import Breadcrumbs from './breadcrumbs'
+import Selection from './Selection'
 import axios from 'axios'
 
 export default {
@@ -25,7 +27,7 @@ export default {
         }
     },
     components: {
-        CatalogItem, Breadcrumbs
+        CatalogItem, Breadcrumbs, Selection
     },
     mounted() {
         axios

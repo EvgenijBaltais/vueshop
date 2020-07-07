@@ -33,6 +33,10 @@ body {
     color: #fff;
 }
 
+.empty-cart-info {
+    text-align: center;
+}
+
 a {
     text-decoration: none;
     color: #000;
@@ -647,7 +651,7 @@ section {
 
 /* Slider */
 
-.slider {
+.main-slider {
 
     position: relative;
     overflow: hidden;
@@ -689,12 +693,12 @@ section {
     transition: opacity .2s;
 }
 
-.slider:hover .slider-arrow-left {
+.main-slider:hover .slider-arrow-left {
     opacity: .5;
     transition: opacity .2s;
 }
 
-.slider:hover .slider-arrow-right {
+.main-slider:hover .slider-arrow-right {
     opacity: .5;
     transition: opacity .2s;
 }
@@ -1430,3 +1434,6 @@ section {
 }
 
 /* Анимация */
+
+
+/* Range Slider */
