@@ -6,27 +6,27 @@
                 <a class = "optional-menu-link">Букеты</a>
                 <ul class = "child-nav-list">
                     <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 1}}">
+                        <router-link :to = "{name: 'Catalog_items', params: {id: 1}}" class = "child-nav-item__link">
                             Букеты из роз
                         </router-link>
                     </li>
                     <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 2}}">
+                        <router-link :to = "{name: 'Catalog_items', params: {id: 2}}" class = "child-nav-item__link">
                             Букеты из лилий
                         </router-link>
                     </li>
                     <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 3}}">
+                        <router-link :to = "{name: 'Catalog_items', params: {id: 3}}" class = "child-nav-item__link">
                             Букеты из гвоздик
                         </router-link>
                     </li>
                     <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 4}}">
+                        <router-link :to = "{name: 'Catalog_items', params: {id: 4}}" class = "child-nav-item__link">
                             Букеты из фиалок
                         </router-link>
                     </li>
                     <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 5}}">
+                        <router-link :to = "{name: 'Catalog_items', params: {id: 5}}" class = "child-nav-item__link">
                             Букеты из хризантем
                         </router-link>
                     </li>
@@ -38,11 +38,31 @@
             <div class = "optional-menu-item-wrap">
                 <a class  = "optional-menu-link">Цветы</a>
                 <ul class = "child-nav-list">
-                    <li class = "child-nav-item">Букеты из роз</li>
-                    <li class = "child-nav-item">Букеты из лилий</li>
-                    <li class = "child-nav-item">Букеты из гвоздик</li>
-                    <li class = "child-nav-item">Букеты из фиалок</li>
-                    <li class = "child-nav-item">Букеты из хризантем</li>
+                    <li class = "child-nav-item">
+                        <router-link :to = "{name: 'Catalog_items', params: {id: 1}}" class = "child-nav-item__link">
+                            Букеты из роз
+                        </router-link>
+                    </li>
+                    <li class = "child-nav-item">
+                        <router-link :to = "{name: 'Catalog_items', params: {id: 2}}" class = "child-nav-item__link">
+                            Букеты из лилий
+                        </router-link>
+                    </li>
+                    <li class = "child-nav-item">
+                        <router-link :to = "{name: 'Catalog_items', params: {id: 3}}" class = "child-nav-item__link">
+                            Букеты из гвоздик
+                        </router-link>
+                    </li>
+                    <li class = "child-nav-item">
+                        <router-link :to = "{name: 'Catalog_items', params: {id: 4}}" class = "child-nav-item__link">
+                            Букеты из фиалок
+                        </router-link>
+                    </li>
+                    <li class = "child-nav-item">
+                        <router-link :to = "{name: 'Catalog_items', params: {id: 5}}" class = "child-nav-item__link">
+                            Букеты из хризантем
+                        </router-link>
+                    </li>
                 </ul>
             </div>
             <hr class = "optional-menu-hr">
@@ -55,11 +75,31 @@
             <div class = "optional-menu-item-wrap">
                 <a class  = "optional-menu-link">Акции</a>
                 <ul class = "child-nav-list">
-                    <li class = "child-nav-item">Букеты из роз</li>
-                    <li class = "child-nav-item">Букеты из лилий</li>
-                    <li class = "child-nav-item">Букеты из гвоздик</li>
-                    <li class = "child-nav-item">Букеты из фиалок</li>
-                    <li class = "child-nav-item">Букеты из хризантем</li>
+                    <li class = "child-nav-item">
+                        <router-link :to = "{name: 'Catalog_items', params: {id: 1}}" class = "child-nav-item__link">
+                            Букеты из роз
+                        </router-link>
+                    </li>
+                    <li class = "child-nav-item">
+                        <router-link :to = "{name: 'Catalog_items', params: {id: 2}}" class = "child-nav-item__link">
+                            Букеты из лилий
+                        </router-link>
+                    </li>
+                    <li class = "child-nav-item">
+                        <router-link :to = "{name: 'Catalog_items', params: {id: 3}}" class = "child-nav-item__link">
+                            Букеты из гвоздик
+                        </router-link>
+                    </li>
+                    <li class = "child-nav-item">
+                        <router-link :to = "{name: 'Catalog_items', params: {id: 4}}" class = "child-nav-item__link">
+                            Букеты из фиалок
+                        </router-link>
+                    </li>
+                    <li class = "child-nav-item">
+                        <router-link :to = "{name: 'Catalog_items', params: {id: 5}}" class = "child-nav-item__link">
+                            Букеты из хризантем
+                        </router-link>
+                    </li>
                 </ul>
             </div>
             <hr class = "optional-menu-hr">

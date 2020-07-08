@@ -386,7 +386,7 @@ section {
 
 .optional-menu-item {
     position: relative;
-    padding: 15px 20px;
+    padding: 0 20px;
     cursor: pointer;
 }
 
@@ -396,7 +396,7 @@ section {
 
 .optional-menu-link {
     display: block;
-    padding: 0 20px;
+    padding: 15px 20px;
     background-image: url('../img/icons/thin_right.svg');
     background-repeat: no-repeat;
     background-size: 10px;
@@ -493,7 +493,7 @@ section {
 }
 
 .child-nav-item {
-    padding: 15px;
+    padding: 0;
     background-color: transparent;
     transition: background-color .1s;
 }
@@ -501,6 +501,11 @@ section {
 .child-nav-item:hover {
     background-color: var(--main-yelow);
     transition: background-color .1s;
+}
+
+.child-nav-item__link {
+    display: block;
+    padding: 15px;
 }
 
 .optional-menu-hr {
@@ -1451,10 +1456,12 @@ section {
 }
 
 .color-versions {
+    padding-top: 20px;
     display: flex;
 }
 
 .color-variant {
+    display: flex;
     position: relative;
     width: 40px;
     height: 40px;
@@ -1481,12 +1488,6 @@ section {
 .purple-color {
     background-color: #5970BE;
 }
-.pastel-color {
-    display: flex;
-}
-.bright-color {
-    display: flex;
-}
 .random-color {
     position: relative;
     overflow: hidden;
@@ -1504,12 +1505,20 @@ section {
 .green-color {
     background-color: #93BC38;
 }
-
-.pastel-color__item {
-    width: 20%;
-    height: 100%;
+.pastel-color {
+    flex-direction: column;
 }
-
+.bright-color {
+    flex-direction: column;
+}
+.pastel-color__item {
+    width: 100%;
+    height: 8px;
+}
+.bright-color__item {
+    width: 100%;
+    height: 8px;
+}
 .pastel-color__1 {
     background-color: #CCF1FF;
 }
@@ -1524,11 +1533,6 @@ section {
 }
 .pastel-color__5 {
     background-color: #D7EEFF;
-}
-
-.bright-color__item {
-    width: 20%;
-    height: 100%;
 }
 
 .bright-color__1 {
@@ -1546,20 +1550,21 @@ section {
 .bright-color__5 {
     background-color: #FF0900;
 }
-
-.choosen-color {
-    outline: 2px solid green;
-    position: relative;
+.color-choose {
+    padding: 20px 0;
 }
-.choosen-color__selected {
+
+.choosen-color:after {
+    content: "";
+    display: block;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     margin: auto;
-    background-color: rgba(255,255,255,.3);
     z-index: 3;
+    background-color: rgba(255, 255, 255, .5);
     background-image: url('../img/icons/ok.svg');
     background-repeat: no-repeat;
     background-position: center;
