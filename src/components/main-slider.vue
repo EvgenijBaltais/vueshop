@@ -39,7 +39,7 @@ export default {
     },
     methods: {
 
-        slideAction: function(e, value) {
+        slideAction: function(e) {
             let parent = this.getParent(e.target, 'main-slider'),
                 slides = parent.querySelectorAll('.slider-slide'),
                 sliderDots = parent.querySelectorAll('.slider-nav-dot');

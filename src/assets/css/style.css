@@ -536,6 +536,10 @@ section {
     transition: padding .2s, width .2s;  
 }
 
+.product {
+    user-select: none;
+}
+
 .full-page .product {
 
     width: 23%;
@@ -1447,14 +1451,14 @@ section {
 }
 
 .color-versions {
-    max-width: 500px;
     display: flex;
 }
 
 .color-variant {
-    width: 50px;
+    position: relative;
+    width: 40px;
     height: 40px;
-    border: 1px solid #ccc;
+    margin-right: 5px;
     box-sizing: border-box;
     cursor: pointer;
 }
@@ -1462,32 +1466,104 @@ section {
 .red-color {
    background-color: #AB0D09; 
 }
-.white-color {
-    background-color: #fff;
+.blue-color {
+    background-color: #86BBD8;
 }
 .pink-color {
-
+    background-color: #f0a6ca;
 }
 .yellow-color {
-
+    background-color: #FDCE0B;
 }
 .orange-color {
-
+    background-color: #FA7921;
 }
 .purple-color {
-
+    background-color: #5970BE;
 }
 .pastel-color {
-
+    display: flex;
 }
 .bright-color {
-
+    display: flex;
 }
 .random-color {
-
+    position: relative;
+    overflow: hidden;
+    margin-right: 0;
+}
+.dice-pic {
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    margin: auto;
 }
 .green-color {
+    background-color: #93BC38;
+}
 
+.pastel-color__item {
+    width: 20%;
+    height: 100%;
+}
+
+.pastel-color__1 {
+    background-color: #CCF1FF;
+}
+.pastel-color__2 {
+    background-color: #E0D7FF;
+}
+.pastel-color__3 {
+    background-color: #FFCCE1;
+}
+.pastel-color__4 {
+    background-color: #FAFFC7;
+}
+.pastel-color__5 {
+    background-color: #D7EEFF;
+}
+
+.bright-color__item {
+    width: 20%;
+    height: 100%;
+}
+
+.bright-color__1 {
+    background-color: #A800FF;
+}
+.bright-color__2 {
+    background-color: #00CD00;
+}
+.bright-color__3 {
+    background-color: #FFEF00;
+}
+.bright-color__4 {
+    background-color: #FF7F00;
+}
+.bright-color__5 {
+    background-color: #FF0900;
+}
+
+.choosen-color {
+    outline: 2px solid green;
+    position: relative;
+}
+.choosen-color__selected {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(255,255,255,.3);
+    z-index: 3;
+    background-image: url('../img/icons/ok.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
 }
 
 /* Range Slider, конец */
