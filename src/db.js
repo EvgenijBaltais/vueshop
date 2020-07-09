@@ -42,6 +42,18 @@ app.get('/products', (req, res) => {
     })
 })
 
+// Get all colors
+app.get('/colors', (req, res) => {
+    pool.query('SELECT * from color_variants', (err, rows, fields) => {
+        if (!err) {
+            res.send(rows)
+        }
+        else {
+            console.log(err)
+        }
+    })
+})
+
 // Get a products
 app.get('/products/:id', (req, res) => {
     pool.query('SELECT * from products WHERE id = ?',[req.params.id], (err, rows, fields) => {
