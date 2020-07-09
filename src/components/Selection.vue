@@ -73,8 +73,6 @@ export default {
 
                 let num = this.randomInteger(5, 20);
 
-                //for (let i = 0; i < colorItems.length - 1; i++) {
-
                     let itemIndex = 0,
                         iterationNumber = 0;
                     
@@ -86,9 +84,8 @@ export default {
                         if (itemIndex == colorItems.length - 1) {
                             itemIndex = 0
                         }
-                        else {
-                            colorItems[itemIndex].classList.add('choosen-color');
-                        }
+                        
+                        colorItems[itemIndex].classList.add('choosen-color');
 
                         if (iterationNumber == num - 1) {
                             parent.classList.remove('in-proccess');
