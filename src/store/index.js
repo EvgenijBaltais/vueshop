@@ -1,12 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    namespaced: true,
     fullSize: 0,
-    cartItems: []
+    cartItems: [],
+    products: []
   },
   mutations: {
     INCREMENT: (state, value) => {
@@ -28,6 +31,9 @@ export default new Vuex.Store({
           return false
         }
         state.cartItems.push(item)
+    },
+    SETCATALOG: (state, products) => {
+        state.products = products
     }
   },
   actions: {
@@ -36,6 +42,19 @@ export default new Vuex.Store({
     },
     ADDTOCART({commit}, item){
       commit('CARTCHANGE', item)
+    },
+    getCatalog({commit}) {
+      return axios('http://localhost:3000/products', {
+        method: 'GET'
+      })
+      .then((response) => {
+        commit('SETCATALOG', response.data)
+        console.log(response.data);
+        return response
+      })
+      .catch((error) => {
+          return error
+      })
     }
   },
   getters: {
@@ -50,6 +69,9 @@ export default new Vuex.Store({
     },
     cartPrice: state => {
       return state.cartPrice
+    },
+    catalog: state => {
+      return state.products
     }
   },
   modules: {

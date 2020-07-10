@@ -11,6 +11,10 @@ export default {
   name: 'app',
   components: {
     YellowLayout
+  },
+  created(){
+
+    this.$store.dispatch('getCatalog')
   }
 }
 </script>

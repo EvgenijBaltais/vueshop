@@ -55,6 +55,7 @@ export default {
     data(){
         return {
             colors: [],
+            products: [],
             rangeValue: [0, 25000]
         }
     },

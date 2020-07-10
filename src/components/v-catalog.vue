@@ -57,9 +57,7 @@ export default {
     mounted() {
         this.GET_PRODUCTS_FROM_API()
         .then(response => {
-
             if (response.data) {console.log('data arrived')}
-
         })
     },
     watch: {
