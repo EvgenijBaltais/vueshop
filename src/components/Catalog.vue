@@ -24,19 +24,17 @@ export default {
     name: 'Catalog',
     data(){
         return {
-            //products: this.$store.state.products
+           
         }
     },
     components: {
         CatalogItem, Breadcrumbs, Selection
     },
     methods: {
-
         renewColor: function(){
         }
     },
     computed: {
-
         products(){
             return this.$store.state.products
         }
@@ -44,6 +42,5 @@ export default {
     mounted() {
     }
 }
-
 
 </script> 

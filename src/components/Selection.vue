@@ -14,13 +14,15 @@
         v-if = "!item.nesting"
         :key = "item.id"
         v-bind:class = "[index?``:`choosen-color`, `color-variant`, item.value + `-color`]"
-        @click = 'getColor($event)'
+        @click = 'getColorQuery($event)'
+        :data-color-id = item.id
     >
     </div>
     <div
         v-else-if = "item.nesting == 1"
         v-bind:class = "[index?``:`choosen-color`, `color-variant`, item.value + `-color`]"
-        @click = 'getColor($event)'
+        @click = 'getColorQuery($event)'
+        :data-color-id = item.id
     >
         <div
             v-for = "key in colors"
@@ -76,7 +78,8 @@ export default {
 
                     let itemIndex = 0,
                         iterationNumber = 0;
-                    
+
+                    let q = new Promise((resolve, reject) => {
                     let go = setTimeout(function run() {
                         colorItems[itemIndex].classList.remove('choosen-color');
                         itemIndex++
@@ -90,18 +93,25 @@ export default {
 
                         if (iterationNumber == num - 1) {
                             parent.classList.remove('in-proccess');
-                            console.log('vse')
+                            resolve()
                             return false
                         }
                         setTimeout(run, 100);
                     }, 0);
+
+                    }).then(()=>{
+                        this.$store.dispatch('changeCatalog', {'id': colorItems[itemIndex].getAttribute('data-color-id')})
+                    })
+                    
         },
-        getColor: function(e){
+        getColorQuery: function(e){
 
             let parent = this.getParent(e.target, 'color-versions')
                 if (parent.classList.contains('in-proccess')) return false
 
             parent.querySelector('.choosen-color').classList.remove('choosen-color');
+
+            this.$store.dispatch('changeCatalog', {'id': e.target.getAttribute('data-color-id')})
 
             if (e.target.classList.contains('color-variant')) {
                 e.target.classList.add('choosen-color');

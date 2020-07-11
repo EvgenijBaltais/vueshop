@@ -44,16 +44,27 @@ export default new Vuex.Store({
       commit('CARTCHANGE', item)
     },
     getCatalog({commit}) {
-      return axios('http://localhost:3000/products', {
+      return axios('//localhost:3000/products', {
         method: 'GET'
       })
       .then((response) => {
         commit('SETCATALOG', response.data)
-        console.log(response.data);
         return response
       })
       .catch((error) => {
           return error
+      })
+    },
+    changeCatalog({commit}, params) {
+      return axios('//localhost:3000/selectProducts', {
+        method: 'GET', params: params
+      })
+      .then((response) => {
+        commit ('SETCATALOG', response.data)
+        return response
+      })
+      .catch((error) => {
+        return error
       })
     }
   },
