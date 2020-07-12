@@ -1,7 +1,7 @@
 <template>
     <div>
         <Breadcrumbs />
-        <Selection />
+        <Selection/>
         <div class = "products-wrapper block-mode">
             <CatalogItem
                 v-for = "item in products"

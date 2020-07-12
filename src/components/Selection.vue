@@ -1,7 +1,6 @@
 <template>
 <div class = "selection-block">
 
-
 <VueRangeSlider v-model = "rangeValue" :min = "min" :max = "max" :enable-cross = "enableCross"></VueRangeSlider>
 
 <div class = "color-choose">
@@ -57,8 +56,7 @@ export default {
     data(){
         return {
             colors: [],
-            products: [],
-            rangeValue: [0, 25000]
+            products: []
         }
     },
     components: {
@@ -129,17 +127,30 @@ export default {
         }
     },
     created() {
-        this.min = 0
-        this.max = 25000
         this.speed = 1
         this.step = 0
         this.enableCross = false
     },
+    computed: {
+        min(){
+            return this.$store.state.priceMin
+        },
+        max(){
+            return this.$store.state.priceMax
+        },
+        rangeValue: {
+            get(){
+                return [this.$store.state.priceMin, this.$store.state.priceMax]
+            },
+            set(){
+                []
+            }
+        }
+    },
     mounted() {
-        axios.get('http://localhost:3000/colors', {/*params: {}*/})
+        axios.get('http://localhost:3000/colors')
         .then((response) => {this.colors = response.data})
     }
-
 }
 
 </script>

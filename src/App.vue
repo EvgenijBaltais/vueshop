@@ -13,7 +13,6 @@ export default {
     YellowLayout
   },
   created(){
-
     this.$store.dispatch('getCatalog')
   }
 }

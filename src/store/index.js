@@ -9,7 +9,9 @@ export default new Vuex.Store({
     namespaced: true,
     fullSize: 0,
     cartItems: [],
-    products: []
+    products: [],
+    priceMin: 0,
+    priceMax: 0
   },
   mutations: {
     INCREMENT: (state, value) => {
@@ -33,7 +35,16 @@ export default new Vuex.Store({
         state.cartItems.push(item)
     },
     SETCATALOG: (state, products) => {
+
+      let min = products[0].price,
+          max = 0
+          for (let i = 0; i < products.length; i++) {
+              min > products[i].price ? min = products[i].price : ''
+              max < products[i].price ? max = products[i].price : ''
+          }
         state.products = products
+        state.priceMin = min
+        state.priceMax = max
     }
   },
   actions: {
