@@ -15,7 +15,7 @@ app.use(function(req, res, next) {
     connectionLimit: 5,
     host: 'localhost',
     user: 'root',
-    password: 'toor',
+    password: '',
     database: 'flowershop',
     multipleStatements: true
 })
@@ -57,7 +57,7 @@ app.get('/prices', (req, res) => {
 
 // Get more products
 app.get('/getMoreProducts', (req, res) => {
-    pool.query('SELECT * from products where id > 14 limit 3', (err, rows, fields) => {
+    pool.query('SELECT * from products where id > ' + req.query.from + ' limit 3', (err, rows, fields) => {
         if (!err) {
             res.send(rows)
         }
