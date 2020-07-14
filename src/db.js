@@ -15,7 +15,7 @@ app.use(function(req, res, next) {
     connectionLimit: 5,
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'toor',
     database: 'flowershop',
     multipleStatements: true
 })
@@ -32,7 +32,32 @@ app.listen(3000, () => console.log('Express server is running at post 3000'))
 
 // Get all products
 app.get('/products', (req, res) => {
-    pool.query('SELECT * from products', (err, rows, fields) => {
+    pool.query('SELECT * from products limit ' + req.query.limit + '', (err, rows, fields) => {
+
+        if (!err) {
+            res.send(rows)
+        }
+        else {
+            console.log(err)
+        }
+    })
+})
+
+// Get all prices
+app.get('/prices', (req, res) => {
+    pool.query('SELECT price from products', (err, rows, fields) => {
+        if (!err) {
+            res.send(rows)
+        }
+        else {
+            console.log(err)
+        }
+    })
+})
+
+// Get more products
+app.get('/getMoreProducts', (req, res) => {
+    pool.query('SELECT * from products where id > 14 limit 3', (err, rows, fields) => {
         if (!err) {
             res.send(rows)
         }
@@ -47,7 +72,6 @@ app.get('/selectProducts', (req, res) => {
     pool.query('SELECT * from products where color_variants = ?', [req.query.id], (err, rows, fields) => {
         if (!err) {
             res.send(rows)
-            //console.log(res)
         }
         else {
             console.log(err)
@@ -67,7 +91,7 @@ app.get('/colors', (req, res) => {
     })
 })
 
-// Get a products
+// Get a product
 app.get('/products/:id', (req, res) => {
     pool.query('SELECT * from products WHERE id = ?',[req.params.id], (err, rows, fields) => {
         if (!err) {

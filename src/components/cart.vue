@@ -17,7 +17,7 @@ export default {
     name: 'Cart',
     data(){
         return {
-            cartEmpty: 1,
+            cartEmpty: this.$store.state.cartEmpty,
             sizeValue: this.$store.state.fullSize,
             cartItems: this.$store.state.cartItems
         }

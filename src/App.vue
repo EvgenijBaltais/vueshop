@@ -14,6 +14,7 @@ export default {
   },
   created(){
     this.$store.dispatch('getCatalog')
+    this.$store.dispatch('getPrices')
   }
 }
 </script>

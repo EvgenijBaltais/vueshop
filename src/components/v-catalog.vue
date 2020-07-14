@@ -28,14 +28,15 @@ export default {
     props: {},
     data() {
 
-        return {}
+        return {
+            products: this.$store.state.products
+        }
     },
     components: {
         vCatalogItem
     },
     computed: {
         ...mapGetters([
-            'PRODUCTS',
             'CART'
         ])
     },

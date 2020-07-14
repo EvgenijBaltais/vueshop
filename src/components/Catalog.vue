@@ -9,6 +9,8 @@
                 v-bind:products="item"
             />
         </div>
+
+        <button id = "more">Еще</button>
     </div>
 </template>
 
@@ -24,7 +26,6 @@ export default {
     name: 'Catalog',
     data(){
         return {
-           
         }
     },
     components: {

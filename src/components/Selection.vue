@@ -66,7 +66,7 @@ export default {
 
         getRandomColor: function(e){
             let parent = this.getParent(e.target, 'color-versions')
-                if (parent.classList.contains('in-proccess')) {console.log('return');return false}
+                if (parent.classList.contains('in-proccess')) return false
                 parent.classList.add('in-proccess');
                 parent.querySelector('.choosen-color').classList.remove('choosen-color');
 
@@ -100,7 +100,6 @@ export default {
                     }).then(()=>{
                         this.$store.dispatch('changeCatalog', {'id': colorItems[itemIndex].getAttribute('data-color-id')})
                     })
-                    
         },
         getColorQuery: function(e){
 
@@ -143,7 +142,7 @@ export default {
                 return [this.$store.state.priceMin, this.$store.state.priceMax]
             },
             set(){
-                []
+                
             }
         }
     },

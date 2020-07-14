@@ -25,7 +25,10 @@
             v-for = "item in products"
             :key = "item.id"
             v-bind:products="item"
+            :data-id = "item.id"
         />
+
+            <button id = "more" @click = "get_more($event)">Еще</button>
 
         </div>
     </section>
@@ -45,25 +48,30 @@ export default {
     name: 'Main',
     data() {
         return {
-            products: null
+            
         }
     },
     components: {
         MainSlider, CatalogItem, Breadcrumbs
     },
     methods: {
-
+        get_more(e){
+            let productsAmount = document.querySelectorAll('.product'),
+                lastProductId = productsAmount[productsAmount.length - 1].getAttribute('data-id')
+                console.log(lastProductId)
+                this.$store.dispatch('getMoreProducts', lastProductId)
+        }
     },
     computed: {
-
+        products() {
+            return this.$store.state.products
+        },
         rout(){
             return this.$route.name
         }
     },
   mounted() {
-    axios
-      .get('http://localhost:3000/products')
-      .then((response) => {console.log(response); this.products = response.data});
+    
   }
 }
 </script>

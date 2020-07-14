@@ -7,6 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     namespaced: true,
+    cartEmpty: 1,
     fullSize: 0,
     cartItems: [],
     products: [],
@@ -35,16 +36,23 @@ export default new Vuex.Store({
         state.cartItems.push(item)
     },
     SETCATALOG: (state, products) => {
-
-      let min = products[0].price,
-          max = 0
-          for (let i = 0; i < products.length; i++) {
-              min > products[i].price ? min = products[i].price : ''
-              max < products[i].price ? max = products[i].price : ''
-          }
         state.products = products
-        state.priceMin = min
-        state.priceMax = max
+    },
+    REMAKECATALOG: (state, products) => {
+        state.products = products
+    },
+    GETPRICES: (state, products) => {
+      let min = products[0].price,
+        max = 0
+        for (let i = 0; i < products.length; i++) {
+            min > products[i].price ? min = products[i].price : ''
+            max < products[i].price ? max = products[i].price : ''
+        }
+      state.priceMin = min
+      state.priceMax = max
+    },
+    GETMOREPRODUCTS: (state, products) => {
+      state.products = products
     }
   },
   actions: {
@@ -54,9 +62,21 @@ export default new Vuex.Store({
     ADDTOCART({commit}, item){
       commit('CARTCHANGE', item)
     },
+    getPrices({commit}) {
+      return axios('//localhost:3000/prices', {
+        method: 'GET'
+      })
+      .then((response) => {
+        commit('GETPRICES', response.data)
+        return response
+      })
+      .catch((error) => {
+        return error
+      })
+    },
     getCatalog({commit}) {
       return axios('//localhost:3000/products', {
-        method: 'GET'
+        method: 'GET', params: {'limit': 12}
       })
       .then((response) => {
         commit('SETCATALOG', response.data)
@@ -71,7 +91,19 @@ export default new Vuex.Store({
         method: 'GET', params: params
       })
       .then((response) => {
-        commit ('SETCATALOG', response.data)
+        commit ('REMAKECATALOG', response.data)
+        return response
+      })
+      .catch((error) => {
+        return error
+      })
+    },
+    getMoreProducts({commit}, from) {
+      return axios('//localhost:3000/getMoreProducts', {
+        method: 'GET', params: {'from': from}
+      })
+      .then((response) => {
+        commit('GETMOREPRODUCTS', response.data)
         return response
       })
       .catch((error) => {
