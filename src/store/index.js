@@ -53,7 +53,6 @@ export default new Vuex.Store({
     },
     GETMOREPRODUCTS: (state, products) => {
 
-      console.log(products)
       for (let i = 0; i < products.length; i++) {
         state.products.push(products[i])
       }
@@ -103,7 +102,6 @@ export default new Vuex.Store({
       })
     },
     getMoreProducts({commit}, from) {
-      console.log(from)
       return axios('//localhost:3000/getMoreProducts', {
         method: 'GET', params: {'from': from}
       })

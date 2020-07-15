@@ -49,7 +49,7 @@ export default {
     name: 'Main',
     data() {
         return {
-            
+            scrolling: 0
         }
     },
     components: {
@@ -57,11 +57,16 @@ export default {
     },
     methods: {
         get_more(e){
+
+            if (this.scrolling != 0) return false 
+
+            this.scrolling++
+
             let productsAmount = document.querySelectorAll('.product'),
                 lastProductId = productsAmount[productsAmount.length - 1].getAttribute('data-id')
 
                 let overlay = document.createElement('div')
-                    overlay.classList.add('loading-section')
+                   // overlay.classList.add('loading-section')
 
 
                 document.querySelector('.products-wrapper-w').prepend(overlay)
@@ -69,9 +74,30 @@ export default {
                 this.$store.dispatch('getMoreProducts', lastProductId)
                 .then((response) => {
                     response.data.length < 3 ? e.target.remove() : ''
-                    overlay.remove()
+                    this.scrolling = 0
                 })
+        },
+        getScrollSize(){
 
+            if (this.scrolling != 0) return false 
+
+            this.scrolling++
+
+            let productsAmount = document.querySelectorAll('.product'),
+                lastProductId = productsAmount[productsAmount.length - 1].getAttribute('data-id')
+
+                console.log(lastProductId + ' !!!')
+
+                    console.log(productsAmount[productsAmount.length - 1].offsetTop + ' id ' + lastProductId)
+
+                    if (!(window.scrollY > productsAmount[productsAmount.length - 1].offsetTop)) return false
+
+            this.$store.dispatch('getMoreProducts', lastProductId)
+            .then((response) => {
+                //this.scrolling = 0
+
+                console.log('promise ends')
+            })
         }
     },
     computed: {
@@ -84,6 +110,16 @@ export default {
     },
   mounted() {
     
+  },
+  created() {
+      console.log('created')
+
+            window.addEventListener('scroll', this.getScrollSize)
+  },
+  destroyed(){
+    console.log('destroyed')
+
+    window.removeEventListener('scroll', this.getScrollSize)
   }
 }
 </script>
