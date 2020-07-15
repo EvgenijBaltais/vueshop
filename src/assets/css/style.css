@@ -1470,6 +1470,24 @@ section {
     cursor: pointer;
 }
 
+.color-variant:not(.random-color) {
+    border-radius: 50%;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.4);
+}
+
+.color-variant.choosen-color:not(.random-color) {
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.6);
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.6);
+}
+
+.color-variant.random-color {
+    box-shadow: ;
+}
+
 .red-color {
    background-color: #AB0D09; 
 }
