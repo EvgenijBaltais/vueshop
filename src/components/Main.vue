@@ -31,7 +31,6 @@
 
             </div>
         </div>
-        <button id = "more" @click = "get_more($event)">Еще</button>
     </section>
 </div>
 </template>
@@ -56,54 +55,26 @@ export default {
         MainSlider, CatalogItem, Breadcrumbs
     },
     methods: {
-        get_more(e){
-
-            if (this.scrolling != 0) return false 
-
-            this.scrolling++
-
-            let productsAmount = document.querySelectorAll('.product'),
-                lastProductId = productsAmount[productsAmount.length - 1].getAttribute('data-id')
-
-                let overlay = document.createElement('div')
-                   // overlay.classList.add('loading-section')
-
-
-                document.querySelector('.products-wrapper-w').prepend(overlay)
-
-                this.$store.dispatch('getMoreProducts', lastProductId)
-                .then((response) => {
-                    response.data.length < 3 ? e.target.remove() : ''
-                    this.scrolling = 0
-                })
-        },
         getScrollSize(){
 
-            //if (this.scrolling != 0) return false 
-            
-
-            this.scrolling++
+            if (this.scrolling != 0) return false 
+            if (!document.querySelectorAll('.product').length > 0) return false
 
             let productsAmount = document.querySelectorAll('.product'),
                 lastProductId = productsAmount[productsAmount.length - 1].getAttribute('data-id')
 
                 if (!this.isInViewport(productsAmount[productsAmount.length - 1])) return false
-
-                console.log(lastProductId + ' product id')
-                    console.log(window.scrollY + ' window.scrollY')
-            console.log(productsAmount[productsAmount.length - 1].offsetTop + ' offset')
-                   
+   
             window.removeEventListener('scroll', this.getScrollSize)
 
             setTimeout(() => {
             this.$store.dispatch('getMoreProducts', lastProductId)
                 .then((response) => {
-                    console.log(response.data)
                     setTimeout(() => {
-                        window.addEventListener('scroll', this.getScrollSize)
-                    }, 500)
+                        response.data.length >= 6 ? window.addEventListener('scroll', this.getScrollSize) : ''
+                    }, 0)
                 })
-            }, 500)
+            }, 600)
         },
         isInViewport(element) {
         var rect = element.getBoundingClientRect();
@@ -123,8 +94,8 @@ export default {
     },
     destroyed(){
         console.log('destroyed')
-
         window.removeEventListener('scroll', this.getScrollSize)
+        this.$store.dispatch('getCatalog')
     },
     computed: {
         products() {
