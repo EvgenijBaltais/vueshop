@@ -45,8 +45,10 @@
                 </div>
             </div>
         </div>
+        <div style = "padding: 20px 0 10px 0; text-align: center;">
+            <button>Заказать в один клик!</button>
+        </div>
     </div>
-
 </template>
 
 <script>
@@ -81,7 +83,7 @@ export default {
             }
          },
          addToCart(){
-             let item = {
+                let item = {
                     id: this.products.id,
                     title: this.products.title,
                     price: this.products.price,
@@ -110,5 +112,4 @@ export default {
         ...mapGetters(['cartItemsValue'])
     }
 }
-
 </script>

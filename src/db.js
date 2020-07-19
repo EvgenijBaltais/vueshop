@@ -2,6 +2,7 @@ const mysql = require('mysql2')
 const express = require('express')
 let app = express()
 const bodyparser = require('body-parser')
+const PoolCluster = require('mysql2/lib/pool_cluster')
 
 app.use(bodyparser.json())
 
@@ -15,18 +16,10 @@ app.use(function(req, res, next) {
     connectionLimit: 5,
     host: 'localhost',
     user: 'root',
-    password: 'toor',
+    password: '',
     database: 'flowershop',
     multipleStatements: true
 })
-
-/*pool.connect((err) => {
-
-    if (!err) 
-        console.log('BD connection succeded')
-    else
-        console.log('DB connection failed \n Error : ' + JSON.stringify(err, undefined, 2))
-})*/
 
 app.listen(3000, () => console.log('Express server is running at post 3000'))
 
@@ -100,6 +93,52 @@ app.get('/products/:id', (req, res) => {
         else {
             console.log(err)
         }
+    })
+})
+
+app.get('/getMenu', (req, res) => {
+    pool.query('SELECT * FROM menu', (err, rows, fields) => {
+        if (!err) {
+            res.send(rows)
+        }
+        else {
+            console.log(err)
+        }
+    })
+})
+
+app.get('/getSubMenu', (req, res) => {
+    pool.query('SELECT * FROM submenu', (err, rows, fields) => {
+        if (!err) {
+            res.send(rows)
+        }
+        else {
+            console.log(err)
+        }
+    })
+})
+
+app.get('/subscribe', (req, res) => {
+   if (!req.query.email || req.query.email.indexOf('@') == -1 || req.query.email.length < 5) return false
+
+    let a = pool.query('SELECT * FROM email_subscribers where email LIKE ?', req.query.email, (err, rows, fields) => {
+        if (err) {
+            res.send('Ошибка!')
+            return false
+        }
+        if (rows.length == 0){
+            let sql = 'INSERT INTO email_subscribers (id, email, name, all_clients_key) VALUES (DEFAULT,?,DEFAULT,DEFAULT)'
+            pool.query(sql, req.query.email, (err, rows, fields) => {
+                if (!err) {
+                    res.send('Успешно!')
+                }
+                else {
+                    console.log(err)
+                }
+            })
+            return false
+        }
+        rows[0].email == req.query.email ? res.send('Ваш id-' + rows[0].id) : ''
     })
 })
 

@@ -1,119 +1,16 @@
 <template>
 <div class = "optional-menu-block" id = "optional-menu-block">
     <ul class = "optional-menu-list">
-        <li class = "optional-menu-item link-parent">
-            <div class = "optional-menu-item-wrap">
-                <a class = "optional-menu-link">Букеты</a>
-                <ul class = "child-nav-list">
-                    <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 1}}" class = "child-nav-item__link">
-                            Букеты из роз
-                        </router-link>
-                    </li>
-                    <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 2}}" class = "child-nav-item__link">
-                            Букеты из лилий
-                        </router-link>
-                    </li>
-                    <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 3}}" class = "child-nav-item__link">
-                            Букеты из гвоздик
-                        </router-link>
-                    </li>
-                    <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 4}}" class = "child-nav-item__link">
-                            Букеты из фиалок
-                        </router-link>
-                    </li>
-                    <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 5}}" class = "child-nav-item__link">
-                            Букеты из хризантем
-                        </router-link>
+        <li v-for = "(item, index) in menuItems" :key = "item.id" class = "optional-menu-item link-parent">
+            <div v-bind:class = "[{'optional-menu-item-wrap': item.submenu}]">
+                <a class = "optional-menu-link" :href = "'/' + item.url" @click.prevent = "goToSection($event)">{{item.title}}</a>
+                <ul class = "child-nav-list" v-if = item.submenu>
+                    <li class = "child-nav-item" v-for = "i in subMenuItems" :key = "i.id" v-if = "i.menu_id == item.id">
+                        <a :href = "'/' + item.url + '/' + i.url" class = "child-nav-item__link" @click.prevent = "goToSection($event)">{{i.title}}</a>
                     </li>
                 </ul>
             </div>
-            <hr class = "optional-menu-hr">
-        </li>
-        <li class = "optional-menu-item link-parent">
-            <div class = "optional-menu-item-wrap">
-                <a class  = "optional-menu-link">Цветы</a>
-                <ul class = "child-nav-list">
-                    <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 1}}" class = "child-nav-item__link">
-                            Букеты из роз
-                        </router-link>
-                    </li>
-                    <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 2}}" class = "child-nav-item__link">
-                            Букеты из лилий
-                        </router-link>
-                    </li>
-                    <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 3}}" class = "child-nav-item__link">
-                            Букеты из гвоздик
-                        </router-link>
-                    </li>
-                    <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 4}}" class = "child-nav-item__link">
-                            Букеты из фиалок
-                        </router-link>
-                    </li>
-                    <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 5}}" class = "child-nav-item__link">
-                            Букеты из хризантем
-                        </router-link>
-                    </li>
-                </ul>
-            </div>
-            <hr class = "optional-menu-hr">
-        </li>
-        <li class = "optional-menu-item">
-            <a class  = "optional-menu-link">Горшечные растения</a>
-            <hr class = "optional-menu-hr">
-        </li>
-        <li class = "optional-menu-item link-parent">
-            <div class = "optional-menu-item-wrap">
-                <a class  = "optional-menu-link">Акции</a>
-                <ul class = "child-nav-list">
-                    <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 1}}" class = "child-nav-item__link">
-                            Букеты из роз
-                        </router-link>
-                    </li>
-                    <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 2}}" class = "child-nav-item__link">
-                            Букеты из лилий
-                        </router-link>
-                    </li>
-                    <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 3}}" class = "child-nav-item__link">
-                            Букеты из гвоздик
-                        </router-link>
-                    </li>
-                    <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 4}}" class = "child-nav-item__link">
-                            Букеты из фиалок
-                        </router-link>
-                    </li>
-                    <li class = "child-nav-item">
-                        <router-link :to = "{name: 'Catalog_items', params: {id: 5}}" class = "child-nav-item__link">
-                            Букеты из хризантем
-                        </router-link>
-                    </li>
-                </ul>
-            </div>
-            <hr class = "optional-menu-hr">
-        </li>
-        <li class = "optional-menu-item">
-            <div class = "optional-menu-item-wrap">
-                <a class  = "optional-menu-link">Упаковка</a>
-            </div>
-            <hr class = "optional-menu-hr">
-        </li>
-        <li class = "optional-menu-item">
-            <div class = "optional-menu-item-wrap">
-                <a class  = "optional-menu-link">Посуда</a>
-            </div>
+            <hr class = "optional-menu-hr" v-if = "index != menuItems.length - 1">
         </li>
     </ul>
 </div>
@@ -123,8 +20,26 @@
 export default {
 
     name: 'OptionalHiddenMenu',
-    date() {
-        return {}
+    data() {
+        return {
+            roses: 'roses'
+        }
+    },
+    methods: {
+
+        goToSection: function(e){
+
+            let path = e.target.getAttribute('href')
+                this.$router.push({ path: path })
+        }
+    },
+    computed: {
+        menuItems(){
+            return this.$store.state.menuItems
+        },
+        subMenuItems(){
+            return this.$store.state.subMenuItems
+        }
     }
 }
 </script>

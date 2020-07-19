@@ -12,7 +12,9 @@ export default new Vuex.Store({
     cartItems: [],
     products: [],
     priceMin: 0,
-    priceMax: 0
+    priceMax: 0,
+    menuItems: [],
+    subMenuItems: []
   },
   mutations: {
     INCREMENT: (state, value) => {
@@ -52,10 +54,15 @@ export default new Vuex.Store({
       state.priceMax = max
     },
     GETMOREPRODUCTS: (state, products) => {
-
       for (let i = 0; i < products.length; i++) {
         state.products.push(products[i])
       }
+    },
+    GETMENUITEMS: (state, menuItems) => {
+      state.menuItems = menuItems
+    },
+    GETSUBMENUITEMS: (state, subMenuItems) => {
+      state.subMenuItems = subMenuItems
     }
   },
   actions: {
@@ -111,6 +118,28 @@ export default new Vuex.Store({
       })
       .catch((error) => {
         return error
+      })
+    },
+    getMenu({commit}) {
+      return axios('//localhost:3000/getMenu', {
+        method: 'GET'
+      })
+      .then(response => {
+        commit('GETMENUITEMS', response.data)
+        return response
+      }).catch(error => {
+        return error
+      })
+    },
+    getSubMenu({commit}) {
+      return axios('//localhost:3000/getSubMenu', {
+        method: 'GET'
+      })
+      .then(response => {
+        commit('GETSUBMENUITEMS', response.data)
+        return response
+      }).catch(error => {
+        return false
       })
     }
   },

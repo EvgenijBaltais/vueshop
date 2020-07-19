@@ -15,6 +15,8 @@ export default {
   created(){
     this.$store.dispatch('getCatalog')
     this.$store.dispatch('getPrices')
+    this.$store.dispatch('getMenu')
+    this.$store.dispatch('getSubMenu')
   }
 }
 </script>
