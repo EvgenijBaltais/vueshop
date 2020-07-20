@@ -6,6 +6,7 @@ import Main from '../components/Main'
 import Product from '../components/Product'
 import Catalog from '../components/Catalog'
 import myContact from '../components/MyContact'
+import ItemFull from '../components/ItemFull'
 import PageNotFound from '../components/PageNotFound'
 
 Vue.use(VueRouter)
@@ -29,6 +30,15 @@ Vue.use(VueRouter)
     },
     {
       path: '/bouquets/:id',
+      name: 'Bouquets_item',
+      meta: {
+        breadcrumb: 'Купить букет'
+      },
+      component: ItemFull,
+      props: {'category': '1'}
+    },
+    {
+      path: '/bouquets/',
       name: 'Bouquets',
       meta: {
         breadcrumb: 'Букеты'
