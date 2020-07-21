@@ -35,6 +35,7 @@ export default new Vuex.Store({
           state.cartItems[alreadyExists].amount += item.amount
           return false
         }
+        state.cartEmpty = 0
         state.cartItems.push(item)
     },
     SETCATALOG: (state, products) => {

@@ -17,9 +17,17 @@ export default {
     name: 'Cart',
     data(){
         return {
-            cartEmpty: this.$store.state.cartEmpty,
-            sizeValue: this.$store.state.fullSize,
-            cartItems: this.$store.state.cartItems
+        }
+    },
+    computed: {
+        cartEmpty(){
+            return this.$store.state.cartEmpty
+        },
+        sizeValue(){
+            return this.$store.state.fullSize
+        },
+        cartItems(){
+            return this.$store.state.cartItems
         }
     }
 }

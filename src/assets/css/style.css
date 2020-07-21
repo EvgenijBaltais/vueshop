@@ -1182,6 +1182,11 @@ section {
     background-position: center;
 }
 
+.product-watch {
+    display: block;
+    text-decoration: none;
+}
+
 .product-watch .product-button-anim-first {
     background-image: url('../img/icons/eye.svg');
     background-repeat: no-repeat;
