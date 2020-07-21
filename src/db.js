@@ -14,10 +14,10 @@ app.use(function(req, res, next) {
 
   const pool = mysql.createPool({
     connectionLimit: 5,
-    host: 'localhost',
-    user: 'root',
-    password: 'toor',
-    database: 'flowershop',
+    host: '79.174.12.75',
+    user: 'flowers',
+    password: 'M2c4J6v3',
+    database: 'flowers',
     multipleStatements: true
 })
 
