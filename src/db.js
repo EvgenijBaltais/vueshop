@@ -86,7 +86,7 @@ app.get('/colors', (req, res) => {
 
 // Get a product
 app.get('/products/:id', (req, res) => {
-    pool.query('SELECT * from products WHERE id = ?',[req.params.id], (err, rows, fields) => {
+    pool.query('SELECT * from products WHERE id = ?',[req.query.id], (err, rows, fields) => {
         if (!err) {
             res.send(rows)
         }

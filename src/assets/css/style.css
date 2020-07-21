@@ -246,7 +246,6 @@ section {
 
     color: #000;
 
-    text-transform: uppercase;
     transition: color .2s;
     cursor: pointer;
 }
@@ -1226,8 +1225,6 @@ section {
     padding: 20px 0 10px 0;
     box-sizing: border-box;
 
-    text-transform: uppercase;
-    
     text-align: center;
 }
 

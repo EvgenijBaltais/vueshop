@@ -15,6 +15,14 @@
                 </div>
             </div>
         </div>
+
+        <div class="product-item-section">
+            <h2 class = "product-title">{{product_item.title}}</h2>
+            <div class = "product-item-price">
+                {{product_item.price}}
+            </div>
+            <p>{{product_item.description}}</p>
+        </div>
     </div>
 </template>
 
@@ -24,6 +32,10 @@
 }
 .product-item-detail {
     display: flex;
+}
+.product-item-section {
+    padding-left: 20px;
+    box-sizing: border-box;
 }
 .product-gallery {
     width: 450px;
@@ -46,6 +58,10 @@
     height: 136.6px;
 }
 
+.product-item-price {
+    padding: 20px 0
+}
+
 </style>
 
 <script>
@@ -56,28 +72,19 @@ export default {
 
     data(){
         return {
-            product_id: this.$route.params.id
+            product_id: this.$route.params.id,
+            product_item: []
         }
     },
-    computed: {
-
-        product(){
-
-            for (let key in this.$store.state.products) {
-                if (this.$store.state.products[key].id == this.product_id) {
-                    return this.$store.state.products[key]
-                    break
-                }
-            }
-        }
-
-        /*axios.get('//localhost:8000/getItem')
+    mounted() {
+        axios.get('//localhost:3000/products/:id', {params: {'id': this.product_id}})
         .then(response => {
             console.log(response)
+            this.product_item = response.data[0]
         })
         .catch(err => {
             console.log(err)
-        })*/
+        })
     }
 }
 
