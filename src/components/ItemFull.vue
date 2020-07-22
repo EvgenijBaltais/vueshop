@@ -17,7 +17,7 @@
         </div>
 
         <div class="product-item-section">
-            <h2 class = "product-title">{{product_item.title}}</h2>
+            <h2 class = "product-item-title">{{product_item.title}}</h2>
             <div class = "product-item-price">
                 {{product_item.price}}
             </div>
@@ -52,10 +52,10 @@
     display: flex;
 }
 .gallery-dop-pic {
-    margin-right: 20px;
-    margin-top: 20px;
-    width: 136.7px;
-    height: 136.6px;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 143.4px;
+    height: 143.4px;
 }
 
 .product-item-price {
