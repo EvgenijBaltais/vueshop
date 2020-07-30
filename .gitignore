@@ -1,6 +1,4 @@
 .DS_Store
-/vueshop/node_modules
-/node_modules
 node_modules
 #dist
 src/db.js
