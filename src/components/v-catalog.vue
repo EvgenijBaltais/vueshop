@@ -15,9 +15,7 @@
 </div>
 </template>
 
-
 <script>
-
 
 import vCatalogItem from './v-catalog-item'
 import { mapActions, mapGetters } from 'vuex'
@@ -85,5 +83,4 @@ export default {
     padding: 16px;
     border: 1px solid #ccc;
 }
-
 </style>

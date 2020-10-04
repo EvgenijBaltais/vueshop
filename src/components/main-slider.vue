@@ -23,12 +23,12 @@ export default {
     data() {
         return {
             slides: [
-                    "http://tivatheme.com/wp/byhands/home2/wp-content/uploads/2016/11/slide1-h2.jpg",
-                    "http://tivatheme.com/wp/byhands/home2/wp-content/uploads/2016/11/slide2-h2.jpg",
-                    "http://tivatheme.com/wp/byhands/home2/wp-content/uploads/2016/11/slide1-h2.jpg",
-                    "http://tivatheme.com/wp/byhands/home2/wp-content/uploads/2016/11/slide2-h2.jpg",
-                    "http://tivatheme.com/wp/byhands/home2/wp-content/uploads/2016/11/slide1-h2.jpg",
-                    "http://tivatheme.com/wp/byhands/home2/wp-content/uploads/2016/11/slide2-h2.jpg"
+                    "https://img3.goodfon.ru/wallpaper/nbig/f/85/rozy-korzinka-lepestki.jpg",
+                    "https://img4.goodfon.ru/wallpaper/nbig/2/61/vetka-sakura-rozovyi.jpg",
+                    "https://img3.goodfon.ru/wallpaper/nbig/d/4a/podsnezhniki-vesna-zelenyy.jpg",
+                    "https://img2.goodfon.ru/wallpaper/nbig/5/2e/priroda-rasteniya-flora-cvety-460.jpg",
+                    "https://img5.goodfon.ru/wallpaper/nbig/4/45/natiurmort-podsolnukhi-tsvety.jpg",
+                    "https://img1.goodfon.ru/wallpaper/nbig/4/ab/cvetok-cvety-buket-rozovyy.jpg"
             ],
             activeSlide: 0,
             autoPlayInterval: 5000
